@@ -21,6 +21,7 @@ class UtilitieRelateItemWidget extends StatelessWidget {
         // Navigator.of(context).pushNamed('/Utilities',
         //     arguments: RouteArgument(
         //         argumentsList: [utilitie, heroTag], id: utilitie.id));
+        ///
       },
       child: Container(
         
