@@ -27,6 +27,8 @@ dependencies:
   json_annotation: ^4.8.1
   flutter_native_splash: ^2.3.5
   equatable: ^2.0.5
+  carousel_slider: ^4.2.1
+ 
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +50,7 @@ flutter:
     - assets/linkedin.png
     - assets/marker.png
     - assets/logosplash.png
+    - assets/img/
  
 
   fonts:
