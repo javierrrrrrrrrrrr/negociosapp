@@ -14,34 +14,24 @@ class CategorizedUtilitiesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(
-      opacity: const AlwaysStoppedAnimation<double>(0.5),
-      child: SizedBox(
-        height: 500,
-        child: Column(
-          children: [
-            Expanded(
-              child: GridView.builder(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 1, // Un elemento por fila
-                    mainAxisSpacing: 5.0, // Espacio vertical entre elementos
-                    crossAxisSpacing: 5.0, // Espacio horizontal entre elementos
-                    childAspectRatio: 1.0,
-                    // Relación de aspecto de los elementos
+    return Column(
+      children: [
+        Expanded(
+          child: ListView.separated(
+              separatorBuilder: (context, index) => const SizedBox(
+                    height: 20,
                   ),
-                  itemBuilder: (BuildContext context, int index) {
-                    Utilitie utilitie = utilitiesList.elementAt(index);
-                    return UtilitieRelateItemWidget(
-                      utilitie: utilitie,
-                      heroTag: 'categorized_utilities_grid',
-                    );
-                  }),
-            ),
-          ],
+              itemCount: utilitiesList.length,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              itemBuilder: (BuildContext context, int index) {
+                final utility = utilitiesList[index];
+                return UtilitieRelateItemWidget(
+                  utilitie: utility,
+                  heroTag: 'categorized_utilities_grid',
+                );
+              }),
         ),
-      ),
+      ],
     );
   }
 }
