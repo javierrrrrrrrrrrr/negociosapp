@@ -31,6 +31,7 @@ class BottonNavbarCubit extends Cubit<LayoutState> {
 class LayoutState extends Equatable {
   final int index;
   final String title;
+  
   const LayoutState({
     required this.index,
     required this.title,
