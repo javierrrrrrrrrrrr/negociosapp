@@ -7,19 +7,24 @@ import 'package:negociosapp/feature/home/ui/pages/home_page.dart';
 import 'package:negociosapp/feature/layout/ui/pages/layout_page.dart';
 import 'package:negociosapp/feature/notification/ui/pages/notification_page.dart';
 
-final appRouter = GoRouter(initialLocation: '/', routes: [
-  ShellRoute(
+final appRouter = GoRouter(
+  initialLocation: '/',
+  routes: [
+    ShellRoute(
       builder: (context, state, child) {
-        return LayoutScreen(childView: child);
+        return LayoutScreen(
+          childView: child,
+        );
       },
       routes: [
         GoRoute(
           path: '/',
           name: HomePage.name,
-          pageBuilder: (BuildContext context, GoRouterState state) =>
-              const MaterialPage(
-            child: HomePage(),
-          ),
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return const MaterialPage(
+              child: HomePage(),
+            );
+          },
         ),
         GoRoute(
           path: '/favorite',
@@ -53,5 +58,7 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
             child: NotificationPage(),
           ),
         ),
-      ]),
-]);
+      ],
+    ),
+  ],
+);

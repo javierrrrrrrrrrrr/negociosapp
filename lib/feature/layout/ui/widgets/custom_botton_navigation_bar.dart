@@ -1,44 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:negociosapp/feature/account/ui/pages/account_page.dart';
+import 'package:negociosapp/feature/chat/ui/pages/chat_page.dart';
+import 'package:negociosapp/feature/favorite/ui/pages/favorite_page.dart';
+import 'package:negociosapp/feature/home/ui/pages/home_page.dart';
+import 'package:negociosapp/feature/layout/ui/bloc/botton_navbar/botton_navbar_cubit.dart';
 import 'package:negociosapp/feature/notification/ui/pages/notification_page.dart';
 
 import '../../../../core/utils/util.dart';
 
-class CustomBottonNavigationBar extends StatefulWidget {
+class CustomBottonNavigationBar extends StatelessWidget {
   const CustomBottonNavigationBar({
     super.key,
   });
 
-  @override
-  State<CustomBottonNavigationBar> createState() =>
-      _CustomBottonNavigationBarState();
-}
-
-int selectedTab = 2;
-
-class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
   void onItemTapped(int index, BuildContext context) {
     switch (index) {
       case 0:
-        context.goNamed(NotificationPage.name);
+        context.goNamed(NotificationPage.name, extra: 'Home');
         break;
       case 1:
-        context.go('/account');
+        context.goNamed(AccountPage.name, extra: 'Home');
         break;
       case 2:
-        context.go('/');
+        context.goNamed(HomePage.name, extra: 'Home');
         break;
       case 3:
-        context.go('/chat');
+        context.goNamed(ChatPage.name, extra: 'Home');
         break;
       case 4:
-        context.go('/favorite');
+        context.goNamed(FavoritePage.name, extra: 'Home');
         break;
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final bottonNavbarCubit = context.watch<BottonNavbarCubit>();
+
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       selectedItemColor: Theme.of(context).colorScheme.secondary,
@@ -49,12 +49,10 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
       backgroundColor: Colors.transparent,
       selectedIconTheme: const IconThemeData(size: 25),
       unselectedItemColor: Theme.of(context).hintColor.withOpacity(1),
-      currentIndex: selectedTab,
-      onTap: (int i) {
-        setState(() {
-          selectedTab = i;
-        });
-        onItemTapped(i, context);
+      currentIndex: bottonNavbarCubit.state.index,
+      onTap: (int item) {
+        bottonNavbarCubit.onTapItem(item);
+        onItemTapped(item, context);
       },
       items: [
         const BottomNavigationBarItem(

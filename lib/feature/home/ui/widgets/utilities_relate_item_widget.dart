@@ -24,16 +24,16 @@ class UtilitieRelateItemWidget extends StatelessWidget {
         ///
       },
       child: Container(
-        
         padding: const EdgeInsets.all(12.0),
         decoration: BoxDecoration(
-          color: Colors.red,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(6),
           boxShadow: [
             BoxShadow(
-                color: Theme.of(context).hintColor.withOpacity(0.10),
-                offset: const Offset(0, 4),
-                blurRadius: 10)
+              color: Theme.of(context).hintColor.withOpacity(0.10),
+              offset: const Offset(0, 4),
+              blurRadius: 10,
+            )
           ],
         ),
         child: Row(

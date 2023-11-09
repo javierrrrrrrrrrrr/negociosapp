@@ -10,8 +10,15 @@ class Utilitie {
   double rate;
   double discount;
 
-  Utilitie(this.name, this.image, this.type, this.available, this.price,
-      this.rate, this.discount);
+  Utilitie(
+    this.name,
+    this.image,
+    this.type,
+    this.available,
+    this.price,
+    this.rate,
+    this.discount,
+  );
 
   String getPrice({required double myPrice}) {
     return '\$${myPrice.toStringAsFixed(2)}';
