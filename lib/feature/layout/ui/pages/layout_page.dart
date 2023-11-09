@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:negociosapp/feature/layout/ui/cubic/layout_cubic.dart';
-import 'package:negociosapp/feature/layout/ui/cubic/layout_state.dart';
 import 'package:negociosapp/feature/layout/ui/widgets/custom_botton_navigation_bar.dart';
 
 class LayoutScreen extends StatelessWidget {
@@ -13,12 +10,9 @@ class LayoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LayoutCubit, LayoutState>(builder: (context, state) {
-      return Scaffold(
-        body: childView,
-        bottomNavigationBar: const CustomBottonNavigationBar(),
-      );
-    });
+    return Scaffold(
+      body: childView,
+      bottomNavigationBar: const CustomBottonNavigationBar(),
+    );
   }
 }
- 

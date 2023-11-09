@@ -1,11 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/util.dart';
 
-class CustomBottonNavigationBar extends StatelessWidget {
+class CustomBottonNavigationBar extends StatefulWidget {
   const CustomBottonNavigationBar({
     super.key,
   });
+
+  @override
+  State<CustomBottonNavigationBar> createState() =>
+      _CustomBottonNavigationBarState();
+}
+
+int selectedTab = 2;
+
+class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
+  void onItemTapped(int index, BuildContext context) {
+    switch (index) {
+      case 0:
+        context.go('/notification');
+        break;
+      case 1:
+        context.go('/account');
+        break;
+      case 2:
+        context.go('/');
+        break;
+      case 3:
+        context.go('/chat');
+        break;
+      case 4:
+        context.go('/favorite');
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +48,13 @@ class CustomBottonNavigationBar extends StatelessWidget {
       backgroundColor: Colors.transparent,
       selectedIconTheme: const IconThemeData(size: 25),
       unselectedItemColor: Theme.of(context).hintColor.withOpacity(1),
-      currentIndex: 2,
-      onTap: (int i) {},
-      // this will be set when a new tab is tapped
+      currentIndex: selectedTab,
+      onTap: (int i) {
+        setState(() {
+          selectedTab = i;
+        });
+        onItemTapped(i, context);
+      },
       items: [
         const BottomNavigationBarItem(
           icon: Icon(UiIcons.bell),
