@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:negociosapp/feature/account/ui/pages/account_page.dart';
 import 'package:negociosapp/feature/chat/ui/pages/chat_page.dart';
@@ -15,27 +16,42 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
         GoRoute(
           path: '/',
           name: HomePage.name,
-          builder: (context, state) => const HomePage(),
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              const MaterialPage(
+            child: HomePage(),
+          ),
         ),
         GoRoute(
           path: '/favorite',
           name: FavoritePage.name,
-          builder: (context, state) => const FavoritePage(),
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              const MaterialPage(
+            child: FavoritePage(),
+          ),
         ),
         GoRoute(
           path: '/chat',
           name: ChatPage.name,
-          builder: (context, state) => const ChatPage(),
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              const MaterialPage(
+            child: ChatPage(),
+          ),
         ),
         GoRoute(
           path: '/account',
           name: AccountPage.name,
-          builder: (context, state) => const AccountPage(),
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              const MaterialPage(
+            child: AccountPage(),
+          ),
         ),
         GoRoute(
           path: '/notification',
           name: NotificationPage.name,
-          builder: (context, state) => const NotificationPage(),
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              const MaterialPage(
+            child: NotificationPage(),
+          ),
         ),
       ]),
 ]);

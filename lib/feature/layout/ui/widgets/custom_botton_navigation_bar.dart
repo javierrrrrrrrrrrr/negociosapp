@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:negociosapp/feature/notification/ui/pages/notification_page.dart';
 
 import '../../../../core/utils/util.dart';
 
@@ -19,7 +20,7 @@ class _CustomBottonNavigationBarState extends State<CustomBottonNavigationBar> {
   void onItemTapped(int index, BuildContext context) {
     switch (index) {
       case 0:
-        context.go('/notification');
+        context.goNamed(NotificationPage.name);
         break;
       case 1:
         context.go('/account');
