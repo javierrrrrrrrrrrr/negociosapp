@@ -1,99 +1,58 @@
 import 'package:flutter/material.dart';
+import 'package:negociosapp/core/theme/app_text_theme.dart';
 import 'package:negociosapp/core/utils/app_config.dart' as config;
 
 ThemeData themeDataConfigLight() {
+  final color = config.AppColors();
   return ThemeData(
     fontFamily: 'Poppins',
     primaryColor: Colors.white,
     brightness: Brightness.light,
-    focusColor: config.Colors().textSecondeColor(1),
-    hintColor: config.Colors().textAccentColor(1),
+    focusColor: color.textSecondeColor(1),
+    hintColor: color.textAccentColor(1),
     textTheme: TextTheme(
-      labelLarge: const TextStyle(color: Colors.white),
-      headlineSmall:
-          TextStyle(fontSize: 20.0, color: config.Colors().textSecondeColor(1)),
-      headlineMedium: TextStyle(
-          fontSize: 18.0,
-          fontWeight: FontWeight.w600,
-          color: config.Colors().textSecondeColor(1)),
-      displaySmall: TextStyle(
-          fontSize: 20.0,
-          fontWeight: FontWeight.w600,
-          color: config.Colors().textSecondeColor(1)),
-      displayMedium: const TextStyle(
-          fontSize: 22.0, fontWeight: FontWeight.w700, color: Colors.white),
-      displayLarge: TextStyle(
-          fontSize: 22.0,
-          fontWeight: FontWeight.w300,
-          color: config.Colors().textSecondeColor(1)),
-      titleMedium: TextStyle(
-          fontSize: 15.0,
-          fontWeight: FontWeight.w500,
-          color: config.Colors().textSecondeColor(1)),
-      titleLarge: TextStyle(
-          fontSize: 16.0,
-          fontWeight: FontWeight.w600,
-          color: config.Colors().textMainColor(1)),
-      bodyMedium:
-          TextStyle(fontSize: 12.0, color: config.Colors().textSecondeColor(1)),
-      bodyLarge: TextStyle(
-          fontSize: 14.0,
-          fontWeight: FontWeight.w600,
-          color: config.Colors().textSecondeColor(1)),
-      bodySmall: TextStyle(
-          fontSize: 12.0, color: config.Colors().textAccentColor(0.6)),
+      labelLarge: AppTextStyles.base.whiteColor,
+      headlineSmall: AppTextStyles.base.s20.secondDarkColor,
+      headlineMedium: AppTextStyles.base.s18.w600.textSecondColor,
+      displaySmall: AppTextStyles.base.s20.w600.textSecondColor,
+      displayMedium: AppTextStyles.base.s22.w700.whiteColor,
+      displayLarge: AppTextStyles.base.s22.w300.textSecondColor,
+      titleMedium: AppTextStyles.base.s15.w500.textSecondColor,
+      titleLarge: AppTextStyles.base.s16.w600.textMainColor,
+      bodyMedium: AppTextStyles.base.s12.textSecondColor,
+      bodyLarge: AppTextStyles.base.s14.w600.textSecondColor,
+      bodySmall: AppTextStyles.base.s12.textAccentColor,
     ),
     colorScheme: ColorScheme.fromSwatch()
-        .copyWith(secondary: config.Colors().mainColor(1)),
+        .copyWith(secondary: config.AppColors().mainColor(1)),
   );
 }
 
 ThemeData themeDataConfigDark() {
+  final color = config.AppColors();
+
   return ThemeData(
     fontFamily: 'Poppins',
     primaryColor: const Color(0xFF252525),
     //brightness: Brightness.dark,
     scaffoldBackgroundColor: const Color(0xFF2C2C2C),
-    hintColor: config.Colors().secondDarkColor(1),
-    focusColor: config.Colors().accentDarkColor(1),
+    hintColor: color.secondDarkColor(1),
+    focusColor: color.accentDarkColor(1),
     textTheme: TextTheme(
       labelLarge: const TextStyle(color: Color(0xFF252525)),
-      headlineSmall:
-          TextStyle(fontSize: 20.0, color: config.Colors().secondDarkColor(1)),
-      headlineMedium: TextStyle(
-          fontSize: 18.0,
-          fontWeight: FontWeight.w600,
-          color: config.Colors().secondDarkColor(1)),
-      displaySmall: TextStyle(
-          fontSize: 20.0,
-          fontWeight: FontWeight.w600,
-          color: config.Colors().secondDarkColor(1)),
-      displayMedium: TextStyle(
-          fontSize: 22.0,
-          fontWeight: FontWeight.w700,
-          color: config.Colors().mainDarkColor(1)),
-      displayLarge: TextStyle(
-          fontSize: 22.0,
-          fontWeight: FontWeight.w300,
-          color: config.Colors().secondDarkColor(1)),
-      titleMedium: TextStyle(
-          fontSize: 15.0,
-          fontWeight: FontWeight.w500,
-          color: config.Colors().secondDarkColor(1)),
-      titleLarge: TextStyle(
-          fontSize: 16.0,
-          fontWeight: FontWeight.w600,
-          color: config.Colors().mainDarkColor(1)),
-      bodyMedium:
-          TextStyle(fontSize: 12.0, color: config.Colors().secondDarkColor(1)),
-      bodyLarge: TextStyle(
-          fontSize: 14.0,
-          fontWeight: FontWeight.w600,
-          color: config.Colors().secondDarkColor(1)),
-      bodySmall: TextStyle(
-          fontSize: 12.0, color: config.Colors().secondDarkColor(0.7)),
+      headlineSmall: AppTextStyles.base.s20.secondDarkColor,
+      headlineMedium: AppTextStyles.base.s18.w600.secondDarkColor,
+      displaySmall: AppTextStyles.base.s20.w600.secondDarkColor,
+      displayMedium: AppTextStyles.base.s22.w700.mainDarkColor,
+      displayLarge: AppTextStyles.base.s22.w300.secondDarkColor,
+      titleMedium: AppTextStyles.base.s15.w500.secondDarkColor,
+      titleLarge: AppTextStyles.base.s16.w600.mainDarkColor,
+      bodyMedium: AppTextStyles.base.s12.secondDarkColor,
+      bodyLarge: AppTextStyles.base.s14.w600.secondDarkColor,
+      bodySmall:
+          AppTextStyles.base.s12.copyWith(color: color.secondDarkColor(0.7)),
     ),
-    colorScheme: ColorScheme.fromSwatch()
-        .copyWith(secondary: config.Colors().mainDarkColor(1)),
+    colorScheme:
+        ColorScheme.fromSwatch().copyWith(secondary: color.mainDarkColor(1)),
   );
 }

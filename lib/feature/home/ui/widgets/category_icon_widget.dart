@@ -15,6 +15,8 @@ class CategoryIconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return MaterialButton(
       padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -30,7 +32,7 @@ class CategoryIconWidget extends StatelessWidget {
           ),
           Text(
             category.name,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: textTheme.bodyMedium,
           ),
         ],
       ),

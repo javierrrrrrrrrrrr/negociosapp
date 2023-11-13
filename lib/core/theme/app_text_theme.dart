@@ -1,24 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-/// Standardized textstyle
-/// FontWeight + FontSize + Color + FontStyle + decoration
-/// example:
-/// ```
-/// static const TextStyle normal10VermilionItalicUnderline = TextStyle(
-///     fontWeight: FontWeight.normal,
-///     fontSize: 10.nsp,
-///     color: AppColors.vermilion,
-///     fontStyle: FontStyle.italic,
-///     decoration: TextDecoration.underline,
-/// );
-/// ```
+import 'package:negociosapp/core/utils/app_config.dart' as config;
 
 class AppTextStyles {
   AppTextStyles._();
-  static TextStyle base = TextStyle(
+  static TextStyle base = const TextStyle(
     // fontFamily: 'Roboto',
-    fontSize: 12.sp,
+    fontSize: 12,
     // color: AppColors.black,
     fontWeight: FontWeight.normal,
     // color: AppColors.kPrimaryColor,
@@ -56,65 +43,67 @@ extension AppFontWeight on TextStyle {
 
 extension AppFontSize on TextStyle {
   /// fontSize: 10
-  TextStyle get s10 => copyWith(fontSize: 10.sp);
+  TextStyle get s10 => copyWith(fontSize: 10);
 
-  TextStyle get s11 => copyWith(fontSize: 11.sp);
+  TextStyle get s11 => copyWith(fontSize: 11);
 
   /// fontSize: 12
-  TextStyle get s12 => copyWith(fontSize: 12.sp);
+  TextStyle get s12 => copyWith(fontSize: 12);
 
   /// fontSize: 14
-  TextStyle get s14 => copyWith(fontSize: 14.sp);
+  TextStyle get s14 => copyWith(fontSize: 14);
 
   /// fontSize: 15
-  TextStyle get s15 => copyWith(fontSize: 15.sp);
+  TextStyle get s15 => copyWith(fontSize: 15);
 
   /// fontSize: 16
-  TextStyle get s16 => copyWith(fontSize: 16.sp);
+  TextStyle get s16 => copyWith(fontSize: 16);
 
   /// fontSize: 18
-  TextStyle get s18 => copyWith(fontSize: 18.sp);
+  TextStyle get s18 => copyWith(fontSize: 18);
 
   /// fontSize: 20
-  TextStyle get s20 => copyWith(fontSize: 20.sp);
+  TextStyle get s20 => copyWith(fontSize: 20);
 
   /// fontSize: 20
-  TextStyle get s22 => copyWith(fontSize: 22.sp);
+  TextStyle get s22 => copyWith(fontSize: 22);
 
   /// fontSize: 24
-  TextStyle get s24 => copyWith(fontSize: 24.sp);
+  TextStyle get s24 => copyWith(fontSize: 24);
 
-  TextStyle get s26 => copyWith(fontSize: 26.sp);
+  TextStyle get s26 => copyWith(fontSize: 26);
 
   /// fontSize: 28
-  TextStyle get s28 => copyWith(fontSize: 28.sp);
+  TextStyle get s28 => copyWith(fontSize: 28);
 
   /// fontSize: 32
-  TextStyle get s32 => copyWith(fontSize: 32.sp);
+  TextStyle get s32 => copyWith(fontSize: 32);
 
   /// fontSize: 40
-  TextStyle get s40 => copyWith(fontSize: 40.sp);
+  TextStyle get s40 => copyWith(fontSize: 40);
 
   /// fontSize: 48
-  TextStyle get s48 => copyWith(fontSize: 48.sp);
+  TextStyle get s48 => copyWith(fontSize: 48);
 }
 
-// extension AppFontColor on TextStyle {
-//   /// color: AppColors.white,
-//   TextStyle get whiteColor => copyWith(color: AppColors.dark0);
+extension AppFontColor on TextStyle {
+  /// color: AppColors.white,
+  TextStyle get secondDarkColor =>
+      copyWith(color: config.AppColors().secondDarkColor(1));
+  TextStyle get whiteColor => copyWith(color: config.AppColors().whiteColor(1));
 
-//   /// color: AppColors.black,
-//   TextStyle get blackColor => copyWith(color: AppColors.black);
+  TextStyle get mainDarkColor =>
+      copyWith(color: config.AppColors().mainDarkColor(1));
 
-//   TextStyle get dark500Color => copyWith(color: AppColors.dark500);
+  TextStyle get textSecondColor =>
+      copyWith(color: config.AppColors().textSecondeColor(1));
 
-//   /// color: AppColors.kPrimaryColor,
-//   TextStyle get primaryColor => copyWith(color: AppColors.primary);
+  TextStyle get textMainColor =>
+      copyWith(color: config.AppColors().textMainColor(1));
 
-//   TextStyle get orangeColor => copyWith(color: AppColors.orange400);
-
-//   TextStyle get redColor => copyWith(color: AppColors.red400);
-// }
+  TextStyle get textAccentColor =>
+      copyWith(color: config.AppColors().textAccentColor(1));
+}
 
 extension AppFontStyle on TextStyle {
   /// color: AppColors.white,

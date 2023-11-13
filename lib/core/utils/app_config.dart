@@ -36,7 +36,8 @@ class App {
   }
 }
 
-class Colors {
+class AppColors {
+  final Color _whiteColor = const Color(0x00ffffff);
   final Color _mainColor = const Color(0x00fc8d5f);
   final Color _mainDarkColor = const Color(0x00fc8d5f);
   final Color _secondColor = const Color(0x00ba5a2f); //
@@ -47,6 +48,10 @@ class Colors {
   final Color _textMainColor = const Color(0x00945032);
   final Color _textSecondColor = const Color(0x00945032);
   final Color _textAccentColor = const Color(0x00945032);
+
+  Color whiteColor(double opacity) {
+    return _whiteColor.withOpacity(opacity);
+  }
 
   Color mainColor(double opacity) {
     return _mainColor.withOpacity(opacity);
