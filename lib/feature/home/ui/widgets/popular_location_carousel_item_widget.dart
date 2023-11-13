@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class PopularLocationCarouselItemWidget extends StatelessWidget {
-  String heroTag;
-  double marginLeft;
-  Utilitie utilitie;
+  final String heroTag;
+  final double marginLeft;
+  final Utilitie utilitie;
 
-  PopularLocationCarouselItemWidget({
+  const PopularLocationCarouselItemWidget({
     super.key,
     required this.heroTag,
     required this.marginLeft,
@@ -63,12 +63,6 @@ class PopularLocationCarouselItemWidget extends StatelessWidget {
                   softWrap: false,
                   overflow: TextOverflow.fade,
                 ),
-                //SizedBox(height: 7),
-                //Text(
-                //'${utilitie.available} Available',
-                //style: Theme.of(context).textTheme.body1,
-                //overflow: TextOverflow.ellipsis,
-                //),
               ),
             )
           ],

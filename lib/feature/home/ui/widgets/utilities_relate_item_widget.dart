@@ -18,10 +18,7 @@ class UtilitieRelateItemWidget extends StatelessWidget {
       highlightColor: Colors.transparent,
       splashColor: Theme.of(context).colorScheme.secondary.withOpacity(0.08),
       onTap: () {
-        // Navigator.of(context).pushNamed('/Utilities',
-        //     arguments: RouteArgument(
-        //         argumentsList: [utilitie, heroTag], id: utilitie.id));
-        ///
+     
       },
       child: Container(
         padding: const EdgeInsets.all(12.0),
@@ -85,10 +82,10 @@ class UtilitieRelateItemWidget extends StatelessWidget {
                       ),
                       const SizedBox(width: 6),
                       const Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                        size: 18,
-                      ),
+                    Icons.star,
+                    color: Colors.amber,
+                    size: 18,
+                  ),
                     ],
                   ),
                 ),

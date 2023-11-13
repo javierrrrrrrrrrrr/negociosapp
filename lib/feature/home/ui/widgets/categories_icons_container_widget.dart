@@ -2,7 +2,7 @@ import '../../../../core/provicional_borrar_al_empezar_bakend/temporalModels/cat
 import 'category_icon_widget.dart';
 import 'package:flutter/material.dart';
 
-class CategoriesIconsContainerWidget extends StatefulWidget {
+class CategoriesIconsContainerWidget extends StatelessWidget {
   const CategoriesIconsContainerWidget(
       {super.key,
       required CategoriesList categoriesList,
@@ -11,36 +11,18 @@ class CategoriesIconsContainerWidget extends StatefulWidget {
   final ValueChanged<String> onPressed;
 
   @override
-  _CategoriesIconsContainertState createState() =>
-      _CategoriesIconsContainertState();
-}
-
-class _CategoriesIconsContainertState
-    extends State<CategoriesIconsContainerWidget> {
-  CategoriesList categoriesList = CategoriesList();
-  @override
   Widget build(BuildContext context) {
+    final CategoriesList categoriesList = CategoriesList();
     return Wrap(
         alignment: WrapAlignment.spaceBetween,
-        children: _buildSuggestions(categoriesList.list, context));
+        children: List<Widget>.generate(categoriesList.list.length, (index) {
+          return Container(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: CategoryIconWidget(
+              category: categoriesList.list[index],
+              onPressed: (id) {},
+            ),
+          );
+        }));
   }
-}
-
-_buildSuggestions(List<Category> list, BuildContext context) {
-  List<Widget> categories = [];
-  for (var item in list) {
-    categories.add(
-      Container(
-        padding: const EdgeInsets.only(bottom: 20),
-        child: CategoryIconWidget(
-          category: item,
-          onPressed: (id) {
-            // Navigator.of(context).pushNamed('/Categorie',
-            //     arguments: RouteArgument(id: item.id, argumentsList: [item]));
-          },
-        ),
-      ),
-    );
-  }
-  return categories;
 }

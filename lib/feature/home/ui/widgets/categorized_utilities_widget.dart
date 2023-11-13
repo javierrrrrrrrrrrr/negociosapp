@@ -18,6 +18,7 @@ class CategorizedUtilitiesWidget extends StatelessWidget {
       children: [
         Expanded(
           child: ListView.separated(
+              physics: const BouncingScrollPhysics(),
               separatorBuilder: (context, index) => const SizedBox(
                     height: 20,
                   ),

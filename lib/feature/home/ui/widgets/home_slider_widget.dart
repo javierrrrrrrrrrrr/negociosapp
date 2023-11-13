@@ -6,14 +6,9 @@ import '../../../../core/provicional_borrar_al_empezar_bakend/slider.dart'
 
 import 'package:flutter/material.dart';
 
-class HomeSliderWidget extends StatefulWidget {
+class HomeSliderWidget extends StatelessWidget {
   const HomeSliderWidget({super.key});
 
-  @override
-  HomeSliderWidgetState createState() => HomeSliderWidgetState();
-}
-
-class HomeSliderWidgetState extends State<HomeSliderWidget> {
   @override
   Widget build(BuildContext context) {
     final SliderList sliderList = SliderList();

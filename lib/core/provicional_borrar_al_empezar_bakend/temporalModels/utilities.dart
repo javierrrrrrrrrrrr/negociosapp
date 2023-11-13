@@ -52,6 +52,14 @@ class UtilitiesList {
           4.9, 15.3),
       Utilitie('La Mega Pizza', 'assets/img/pizza.jpg', 'Arts & Humanities', 25,
           130, 4.3, 12.1),
+      Utilitie('Lounge Coffee Bar', 'assets/img/coffeebar.jpg',
+          'Arts & Humanities', 25, 130, 4.3, 12.1),
+      Utilitie('Hilton Hotel', 'assets/img/hilton.webp',
+          'Coumputers & Technology', 60, 63, 5.0, 20.2),
+      Utilitie('Smart Gym', 'assets/img/gym.jpg', 'Health & Fitness', 10, 415,
+          4.9, 15.3),
+      Utilitie('La Mega Pizza', 'assets/img/pizza.jpg', 'Arts & Humanities', 25,
+          130, 4.3, 12.1),
     ];
 
     _popularList = [

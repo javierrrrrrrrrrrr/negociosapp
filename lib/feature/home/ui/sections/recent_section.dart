@@ -7,10 +7,7 @@ import '../widgets/widgets.dart';
 class RecentSection extends StatelessWidget {
   const RecentSection({
     super.key,
-  
   });
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +31,7 @@ class RecentSection extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 600,
+          height: 450,
           child: CategorizedUtilitiesWidget(
             utilitiesList: utilitiesList0.recentList,
           ),
