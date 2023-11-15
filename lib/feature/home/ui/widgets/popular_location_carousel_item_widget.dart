@@ -21,11 +21,25 @@ class PopularLocationCarouselItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(
+        Navigator.push(
           context,
-          DetailsPage.name,
-          arguments: RouteArgument(
-              id: utilitie.id, argumentsList: [utilitie, heroTag]),
+          PageRouteBuilder(
+            transitionDuration: const Duration(milliseconds: 500),
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                DetailsPage(
+              routeArgument: RouteArgument(
+                id: utilitie.id,
+                argumentsList: [utilitie, heroTag],
+              ),
+            ),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return FadeTransition(
+                opacity: animation,
+                child: child,
+              );
+            },
+          ),
         );
       },
       child: Container(

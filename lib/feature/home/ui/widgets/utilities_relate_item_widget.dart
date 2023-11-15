@@ -2,6 +2,9 @@ import 'package:negociosapp/core/provicional_borrar_al_empezar_bakend/temporalMo
 
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/route_argument.dart';
+import '../pages/details_page.dart';
+
 class UtilitieRelateItemWidget extends StatelessWidget {
   const UtilitieRelateItemWidget({
     super.key,
@@ -18,7 +21,26 @@ class UtilitieRelateItemWidget extends StatelessWidget {
       highlightColor: Colors.transparent,
       splashColor: Theme.of(context).colorScheme.secondary.withOpacity(0.08),
       onTap: () {
-     
+        Navigator.push(
+          context,
+          PageRouteBuilder(
+            transitionDuration: const Duration(milliseconds: 500),
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                DetailsPage(
+              routeArgument: RouteArgument(
+                id: utilitie.id,
+                argumentsList: [utilitie, heroTag],
+              ),
+            ),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              return FadeTransition(
+                opacity: animation,
+                child: child,
+              );
+            },
+          ),
+        );
       },
       child: Container(
         padding: const EdgeInsets.all(12.0),
@@ -82,10 +104,10 @@ class UtilitieRelateItemWidget extends StatelessWidget {
                       ),
                       const SizedBox(width: 6),
                       const Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                    size: 18,
-                  ),
+                        Icons.star,
+                        color: Colors.amber,
+                        size: 18,
+                      ),
                     ],
                   ),
                 ),

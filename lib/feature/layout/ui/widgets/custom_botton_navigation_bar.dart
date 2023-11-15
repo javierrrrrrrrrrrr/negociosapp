@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:negociosapp/feature/account/ui/pages/account_page.dart';
-import 'package:negociosapp/feature/chat/ui/pages/chat_page.dart';
-import 'package:negociosapp/feature/favorite/ui/pages/favorite_page.dart';
-import 'package:negociosapp/feature/home/ui/pages/home_page.dart';
 import 'package:negociosapp/feature/layout/ui/bloc/botton_navbar/botton_navbar_cubit.dart';
-import 'package:negociosapp/feature/notification/ui/pages/notification_page.dart';
+//import 'package:negociosapp/feature/notification/ui/pages/notification_page.dart';
 
 import '../../../../core/utils/util.dart';
 
@@ -13,29 +9,6 @@ class CustomBottonNavigationBar extends StatelessWidget {
   const CustomBottonNavigationBar({
     super.key,
   });
-
-  void onItemTapped(int index, BuildContext context) {
-    switch (index) {
-      case 0:
-        Navigator.pushNamed(context, NotificationPage.name, arguments: 'Home');
-        break;
-      case 1:
-        Navigator.pushNamed(context, AccountPage.name, arguments: 'Home');
-        break;
-      case 2:
-        Navigator.pushNamed(context, HomePage.name, arguments: 'Home');
-
-        break;
-      case 3:
-        Navigator.pushNamed(context, ChatPage.name, arguments: 'Home');
-
-        break;
-      case 4:
-        Navigator.pushNamed(context, FavoritePage.name, arguments: 'Home');
-
-        break;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +27,6 @@ class CustomBottonNavigationBar extends StatelessWidget {
       currentIndex: bottonNavbarCubit.state.index,
       onTap: (int item) {
         bottonNavbarCubit.onTapItem(item);
-        onItemTapped(item, context);
       },
       items: [
         const BottomNavigationBarItem(
