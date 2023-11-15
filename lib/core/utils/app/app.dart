@@ -10,11 +10,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     FlutterNativeSplash.remove();
 
-    return MaterialApp.router(
+    return MaterialApp(
       title: 'Material App',
-      routerConfig: appRouter,
       darkTheme: themeDataConfigDark(),
       theme: themeDataConfigLight(),
+      routes: RoutesApp.router,
+      initialRoute: RoutesApp.initialRoute,
     );
   }
 }

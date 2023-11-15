@@ -14,5 +14,6 @@ MultiBlocProvider blocProviders() {
       }),
     ],
     child: const MyApp(),
+    
   );
 }

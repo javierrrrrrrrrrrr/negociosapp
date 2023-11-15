@@ -8,13 +8,12 @@ import '../sections/sections.dart';
 class HomePage extends StatelessWidget {
   static const String name = '/home-page';
 
-  const HomePage({super.key,});
-  
+  const HomePage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-   
-
     return const Scaffold(
       body: SingleChildScrollView(
           child: Column(
@@ -28,6 +27,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-
-

@@ -1,7 +1,8 @@
 import 'package:negociosapp/core/provicional_borrar_al_empezar_bakend/temporalModels/utilities.dart';
-
-//import '../widgets/AvailableProgressBarWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:negociosapp/feature/home/ui/pages/details_page.dart';
+
+import '../../../../core/utils/route_argument.dart';
 
 // ignore: must_be_immutable
 class PopularLocationCarouselItemWidget extends StatelessWidget {
@@ -20,8 +21,12 @@ class PopularLocationCarouselItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Navigator.of(context)
-        //     .pushNamed('/Utilities', arguments: new RouteArgument(id: utilitie.id, argumentsList: [utilitie, heroTag]));
+        Navigator.pushNamed(
+          context,
+          DetailsPage.name,
+          arguments: RouteArgument(
+              id: utilitie.id, argumentsList: [utilitie, heroTag]),
+        );
       },
       child: Container(
         margin: EdgeInsets.only(left: marginLeft, right: 20),

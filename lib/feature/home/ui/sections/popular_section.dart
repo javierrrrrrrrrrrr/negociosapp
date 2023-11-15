@@ -7,10 +7,7 @@ import '../widgets/widgets.dart';
 class PopularSection extends StatelessWidget {
   const PopularSection({
     super.key,
-    
   });
-
-
 
   @override
   Widget build(BuildContext context) {

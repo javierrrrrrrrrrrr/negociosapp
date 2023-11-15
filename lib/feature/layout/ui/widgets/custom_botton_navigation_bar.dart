@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:negociosapp/feature/account/ui/pages/account_page.dart';
 import 'package:negociosapp/feature/chat/ui/pages/chat_page.dart';
 import 'package:negociosapp/feature/favorite/ui/pages/favorite_page.dart';
@@ -18,19 +17,22 @@ class CustomBottonNavigationBar extends StatelessWidget {
   void onItemTapped(int index, BuildContext context) {
     switch (index) {
       case 0:
-        context.goNamed(NotificationPage.name, extra: 'Home');
+        Navigator.pushNamed(context, NotificationPage.name, arguments: 'Home');
         break;
       case 1:
-        context.goNamed(AccountPage.name, extra: 'Home');
+        Navigator.pushNamed(context, AccountPage.name, arguments: 'Home');
         break;
       case 2:
-        context.goNamed(HomePage.name, extra: 'Home');
+        Navigator.pushNamed(context, HomePage.name, arguments: 'Home');
+
         break;
       case 3:
-        context.goNamed(ChatPage.name, extra: 'Home');
+        Navigator.pushNamed(context, ChatPage.name, arguments: 'Home');
+
         break;
       case 4:
-        context.goNamed(FavoritePage.name, extra: 'Home');
+        Navigator.pushNamed(context, FavoritePage.name, arguments: 'Home');
+
         break;
     }
   }
