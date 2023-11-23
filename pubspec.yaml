@@ -27,6 +27,9 @@ dependencies:
   equatable: ^2.0.5
   carousel_slider: ^4.2.1
   intl: ^0.18.1
+  freezed_annotation: ^2.4.1
+  dartz: ^0.10.1
+  flutter_dotenv: ^5.1.0
  
 
 dev_dependencies:
@@ -50,6 +53,7 @@ flutter:
     - assets/marker.png
     - assets/logosplash.png
     - assets/img/
+    - .env 
  
 
   fonts:
