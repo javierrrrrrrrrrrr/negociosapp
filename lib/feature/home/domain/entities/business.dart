@@ -4,13 +4,13 @@ part 'business.freezed.dart';
 @freezed
 class Business with _$Business {
   const factory Business({
-    required String id,
+    required int id,
     required String name,
-    required String description,
+    String? description,
     required String createdAt,
     required bool isDeleted,
     Image? imagen,
-    required String category,
+    String? category,
     required bool isPromoted,
     required int ownerId,
   }) = _Business;

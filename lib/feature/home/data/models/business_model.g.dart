@@ -8,15 +8,15 @@ part of 'business_model.dart';
 
 _$BusinessModelImpl _$$BusinessModelImplFromJson(Map<String, dynamic> json) =>
     _$BusinessModelImpl(
-      id: json['id'] as String,
+      id: json['id'] as int,
       name: json['name'] as String,
-      description: json['description'] as String,
+      description: json['description'] as String?,
       createdAt: json['createdAt'] as String,
       isDeleted: json['isDeleted'] as bool,
       imagen: json['imagen'] == null
           ? null
           : ImageModel.fromJson(json['imagen'] as Map<String, dynamic>),
-      category: json['category'] as String,
+      category: json['category'] as String?,
       isPromoted: json['isPromoted'] as bool,
       ownerId: json['ownerId'] as int,
     );

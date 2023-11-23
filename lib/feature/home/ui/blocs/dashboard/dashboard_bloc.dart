@@ -12,8 +12,8 @@ class DashBoardBloc extends Bloc<DashboardEvent, DashboardState> {
   final GetHomeDataUseCase userCase;
 
   DashBoardBloc(this.userCase) : super(const DashboardState.initial()) {
-    statredEvent();
     on<DashboardEvent>(eventHandler);
+    statredEvent();
   }
 
   FutureOr<void> eventHandler(DashboardEvent event, Emitter emit) async {
