@@ -16,13 +16,13 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Business {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
   bool get isDeleted => throw _privateConstructorUsedError;
   Image? get imagen => throw _privateConstructorUsedError;
-  String get category => throw _privateConstructorUsedError;
+  String? get category => throw _privateConstructorUsedError;
   bool get isPromoted => throw _privateConstructorUsedError;
   int get ownerId => throw _privateConstructorUsedError;
 
@@ -37,13 +37,13 @@ abstract class $BusinessCopyWith<$Res> {
       _$BusinessCopyWithImpl<$Res, Business>;
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
-      String description,
+      String? description,
       String createdAt,
       bool isDeleted,
       Image? imagen,
-      String category,
+      String? category,
       bool isPromoted,
       int ownerId});
 
@@ -65,11 +65,11 @@ class _$BusinessCopyWithImpl<$Res, $Val extends Business>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? description = null,
+    Object? description = freezed,
     Object? createdAt = null,
     Object? isDeleted = null,
     Object? imagen = freezed,
-    Object? category = null,
+    Object? category = freezed,
     Object? isPromoted = null,
     Object? ownerId = null,
   }) {
@@ -77,15 +77,15 @@ class _$BusinessCopyWithImpl<$Res, $Val extends Business>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -98,10 +98,10 @@ class _$BusinessCopyWithImpl<$Res, $Val extends Business>
           ? _value.imagen
           : imagen // ignore: cast_nullable_to_non_nullable
               as Image?,
-      category: null == category
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isPromoted: null == isPromoted
           ? _value.isPromoted
           : isPromoted // ignore: cast_nullable_to_non_nullable
@@ -135,13 +135,13 @@ abstract class _$$BusinessImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
-      String description,
+      String? description,
       String createdAt,
       bool isDeleted,
       Image? imagen,
-      String category,
+      String? category,
       bool isPromoted,
       int ownerId});
 
@@ -162,11 +162,11 @@ class __$$BusinessImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? description = null,
+    Object? description = freezed,
     Object? createdAt = null,
     Object? isDeleted = null,
     Object? imagen = freezed,
-    Object? category = null,
+    Object? category = freezed,
     Object? isPromoted = null,
     Object? ownerId = null,
   }) {
@@ -174,15 +174,15 @@ class __$$BusinessImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -195,10 +195,10 @@ class __$$BusinessImplCopyWithImpl<$Res>
           ? _value.imagen
           : imagen // ignore: cast_nullable_to_non_nullable
               as Image?,
-      category: null == category
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isPromoted: null == isPromoted
           ? _value.isPromoted
           : isPromoted // ignore: cast_nullable_to_non_nullable
@@ -217,20 +217,20 @@ class _$BusinessImpl implements _Business {
   const _$BusinessImpl(
       {required this.id,
       required this.name,
-      required this.description,
+      this.description,
       required this.createdAt,
       required this.isDeleted,
       this.imagen,
-      required this.category,
+      this.category,
       required this.isPromoted,
       required this.ownerId});
 
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   @override
-  final String description;
+  final String? description;
   @override
   final String createdAt;
   @override
@@ -238,7 +238,7 @@ class _$BusinessImpl implements _Business {
   @override
   final Image? imagen;
   @override
-  final String category;
+  final String? category;
   @override
   final bool isPromoted;
   @override
@@ -283,22 +283,22 @@ class _$BusinessImpl implements _Business {
 
 abstract class _Business implements Business {
   const factory _Business(
-      {required final String id,
+      {required final int id,
       required final String name,
-      required final String description,
+      final String? description,
       required final String createdAt,
       required final bool isDeleted,
       final Image? imagen,
-      required final String category,
+      final String? category,
       required final bool isPromoted,
       required final int ownerId}) = _$BusinessImpl;
 
   @override
-  String get id;
+  int get id;
   @override
   String get name;
   @override
-  String get description;
+  String? get description;
   @override
   String get createdAt;
   @override
@@ -306,7 +306,7 @@ abstract class _Business implements Business {
   @override
   Image? get imagen;
   @override
-  String get category;
+  String? get category;
   @override
   bool get isPromoted;
   @override
