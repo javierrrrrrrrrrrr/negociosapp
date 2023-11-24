@@ -1,11 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:negociosapp/core/provicional_borrar_al_empezar_bakend/slider.dart';
-import '../../../../core/provicional_borrar_al_empezar_bakend/slider.dart'
-    as prefix0;
-//import '../models/slider.dart';
-
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
-
 import '../../domain/entities/business.dart';
 
 class HomeSliderWidget extends StatelessWidget {
@@ -14,8 +9,6 @@ class HomeSliderWidget extends StatelessWidget {
   final List<Business> promotedBusinesses;
   @override
   Widget build(BuildContext context) {
-    final SliderList sliderList = SliderList();
-    const int current = 0;
     return Stack(
       alignment: AlignmentDirectional.bottomEnd,
       children: <Widget>[
@@ -27,7 +20,8 @@ class HomeSliderWidget extends StatelessWidget {
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: NetworkImage(dataList.imagen!.medium.url),
+                        image: FastCachedImageProvider(
+                            dataList.imagen!.medium.url),
                         fit: BoxFit.cover),
                     boxShadow: [
                       BoxShadow(
@@ -55,20 +49,21 @@ class HomeSliderWidget extends StatelessWidget {
         Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: sliderList.list.map((prefix0.Slider slide) {
+            children: promotedBusinesses.map((Business dataList) {
               return Container(
-                width: 20.0,
-                height: 3.0,
-                margin:
-                    const EdgeInsets.symmetric(vertical: 70.0, horizontal: 2.0),
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(8),
-                    ),
-                    color: current == sliderList.list.indexOf(slide)
-                        ? Theme.of(context).hintColor
-                        : Theme.of(context).hintColor.withOpacity(0.3)),
-              );
+                  width: 20.0,
+                  height: 3.0,
+                  margin: const EdgeInsets.symmetric(
+                      vertical: 70.0, horizontal: 2.0),
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(8),
+                      ),
+                      color: Theme.of(context).hintColor)
+                  // color: current == sliderList.list.indexOf(slide)
+                  //     ? Theme.of(context).hintColor
+                  //     : Theme.of(context).hintColor.withOpacity(0.3)),
+                  );
             }).toList(),
           ),
         ),

@@ -1,15 +1,14 @@
-import '../../../../core/provicional_borrar_al_empezar_bakend/temporalModels/utilities.dart';
+import 'package:negociosapp/feature/home/domain/entities/business.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/utils/util.dart';
-import 'popular_location_carousel_widget.dart';
+//import 'popular_location_carousel_widget.dart';
 
 // ignore: must_be_immutable
 class UtilitieHomeTabWidget extends StatefulWidget {
-  Utilitie utilitie;
-  final UtilitiesList _productsList = UtilitiesList();
+  Business business;
+  // final UtilitiesList _productsList = UtilitiesList();
 
-  UtilitieHomeTabWidget({super.key, required this.utilitie});
+  UtilitieHomeTabWidget({super.key, required this.business});
 
   @override
   UtilitieHomeTabWidgetState createState() => UtilitieHomeTabWidgetState();
@@ -29,7 +28,7 @@ class UtilitieHomeTabWidgetState extends State<UtilitieHomeTabWidget> {
             children: <Widget>[
               Expanded(
                 child: Text(
-                  widget.utilitie.name,
+                  widget.business.name,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                   style: Theme.of(context).textTheme.displaySmall,
@@ -40,7 +39,7 @@ class UtilitieHomeTabWidgetState extends State<UtilitieHomeTabWidget> {
                 label: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Text(widget.utilitie.rate.toString(),
+                    Text("5.0",
                         style: Theme.of(context).textTheme.bodyLarge!.merge(
                             TextStyle(color: Theme.of(context).primaryColor))),
                     const SizedBox(width: 4),
@@ -64,7 +63,7 @@ class UtilitieHomeTabWidgetState extends State<UtilitieHomeTabWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Expanded(
-                child: Text(widget.utilitie.type,
+                child: Text(widget.business.category.toString(),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                     style: Theme.of(context).textTheme.bodyLarge),
@@ -127,9 +126,9 @@ class UtilitieHomeTabWidgetState extends State<UtilitieHomeTabWidget> {
             ),
           ),
         ),
-        PopularLocationCarouselWidget(
-            heroTag: 'product_related_products',
-            utilitiesList: widget._productsList.popularList),
+        //   PopularLocationCarouselWidget(
+        //       heroTag: 'product_related_products',
+        //       utilitiesList: widget._productsList.popularList),
       ],
     );
   }

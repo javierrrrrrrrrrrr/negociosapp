@@ -1,20 +1,21 @@
-import 'package:negociosapp/core/provicional_borrar_al_empezar_bakend/temporalModels/utilities.dart';
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:negociosapp/feature/home/ui/pages/details_page.dart';
 
 import '../../../../core/utils/route_argument.dart';
+import '../../domain/entities/business.dart';
 
 // ignore: must_be_immutable
 class PopularLocationCarouselItemWidget extends StatelessWidget {
   final String heroTag;
   final double marginLeft;
-  final Utilitie utilitie;
+  final Business business;
 
   const PopularLocationCarouselItemWidget({
     super.key,
     required this.heroTag,
     required this.marginLeft,
-    required this.utilitie,
+    required this.business,
   });
 
   @override
@@ -28,8 +29,8 @@ class PopularLocationCarouselItemWidget extends StatelessWidget {
             pageBuilder: (context, animation, secondaryAnimation) =>
                 DetailsPage(
               routeArgument: RouteArgument(
-                id: utilitie.id,
-                argumentsList: [utilitie, heroTag],
+                id: business.id,
+                argumentsList: [business, heroTag],
               ),
             ),
             transitionsBuilder:
@@ -48,20 +49,19 @@ class PopularLocationCarouselItemWidget extends StatelessWidget {
           alignment: AlignmentDirectional.topCenter,
           children: <Widget>[
             Hero(
-              tag: heroTag + utilitie.id,
-              child: Container(
-                width: 180,
-                height: 185,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(utilitie.image),
-                  ),
+              tag: heroTag + business.id.toString(),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(6),
+                child: FastCachedImage(
+                  height: 185,
+                  width: 180,
+                  url: business.imagen!.medium.url,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
             Container(
+              padding: const EdgeInsets.symmetric(horizontal: 5),
               margin: const EdgeInsets.only(top: 160),
               width: 140,
               height: 50,
@@ -76,11 +76,11 @@ class PopularLocationCarouselItemWidget extends StatelessWidget {
                   ]),
               child: Center(
                 child: Text(
-                  utilitie.name,
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  business.name,
+                  style: Theme.of(context).textTheme.bodyMedium,
                   maxLines: 1,
                   softWrap: false,
-                  overflow: TextOverflow.fade,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             )

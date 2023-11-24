@@ -1,18 +1,17 @@
-import 'package:negociosapp/core/provicional_borrar_al_empezar_bakend/temporalModels/utilities.dart';
-
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
-
+import 'package:negociosapp/feature/home/domain/entities/business.dart';
 import '../../../../core/utils/route_argument.dart';
 import '../pages/details_page.dart';
 
 class UtilitieRelateItemWidget extends StatelessWidget {
   const UtilitieRelateItemWidget({
     super.key,
-    required this.utilitie,
+    required this.data,
     required this.heroTag,
   });
 
-  final Utilitie utilitie;
+  final Business data;
   final String heroTag;
 
   @override
@@ -28,8 +27,8 @@ class UtilitieRelateItemWidget extends StatelessWidget {
             pageBuilder: (context, animation, secondaryAnimation) =>
                 DetailsPage(
               routeArgument: RouteArgument(
-                id: utilitie.id,
-                argumentsList: [utilitie, heroTag],
+                id: data.id,
+                argumentsList: [data, heroTag],
               ),
             ),
             transitionsBuilder:
@@ -66,10 +65,13 @@ class UtilitieRelateItemWidget extends StatelessWidget {
               width: 100,
               height: 100,
               child: Hero(
-                tag: heroTag + utilitie.id,
-                child: Image.asset(
-                  utilitie.image,
-                  fit: BoxFit.cover,
+                tag: heroTag + data.id.toString(),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(6),
+                  child: FastCachedImage(
+                    url: data.imagen!.medium.url,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -81,7 +83,7 @@ class UtilitieRelateItemWidget extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                   child: Text(
-                    utilitie.name,
+                    data.name,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
@@ -89,7 +91,7 @@ class UtilitieRelateItemWidget extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                   child: Text(
-                    utilitie.type,
+                    data.category ?? 'No category',
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
@@ -99,7 +101,7 @@ class UtilitieRelateItemWidget extends StatelessWidget {
                   child: Row(
                     children: <Widget>[
                       Text(
-                        utilitie.rate.toString(),
+                        '5.0',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       const SizedBox(width: 6),

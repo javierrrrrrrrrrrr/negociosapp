@@ -8,10 +8,12 @@ import '../../feature/account/ui/pages/account_page.dart';
 import '../../feature/chat/ui/pages/chat_page.dart';
 import '../../feature/favorite/ui/pages/favorite_page.dart';
 import '../../feature/notification/ui/pages/notification_page.dart';
+import '../../feature/splash/ui/pages/splash_screen_page.dart';
 
 class RoutesApp {
   static Map<String, WidgetBuilder> get router {
     return {
+      SplashScreen.name: (_) => const SplashScreen(),
       LayoutScreen.name: (_) => const LayoutScreen(),
       HomePage.name: (_) => const HomePage(),
       ChatPage.name: (_) => const ChatPage(),
@@ -28,5 +30,5 @@ class RoutesApp {
     };
   }
 
-  static String get initialRoute => LayoutScreen.name;
+  static String get initialRoute => SplashScreen.name;
 }

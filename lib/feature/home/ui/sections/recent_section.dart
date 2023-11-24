@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../../core/provicional_borrar_al_empezar_bakend/temporalModels/utilities.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:negociosapp/feature/home/ui/blocs/dashboard/dashboard_bloc.dart';
 import '../../../../core/utils/util.dart';
 import '../widgets/widgets.dart';
 
@@ -11,8 +11,6 @@ class RecentSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    UtilitiesList utilitiesList0 = UtilitiesList();
-
     return Column(
       children: [
         Padding(
@@ -30,11 +28,18 @@ class RecentSection extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
-          height: 450,
-          child: CategorizedUtilitiesWidget(
-            utilitiesList: utilitiesList0.recentList,
-          ),
+        BlocBuilder<DashBoardBloc, DashBoardState>(
+          builder: (context, state) {
+            return state.when(
+                failure: (message) => Container(),
+                initial: () => Container(),
+                loading: () => Container(),
+                success: (dashBoardData) => SizedBox(
+                    height: 450,
+                    child: CategorizedUtilitiesWidget(
+                      data: dashBoardData.recent,
+                    )));
+          },
         ),
       ],
     );

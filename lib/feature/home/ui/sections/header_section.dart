@@ -15,7 +15,7 @@ class HeaderSection extends StatelessWidget {
     // final dashBoardBloc = context.read<DashBoardBloc>();
     return Stack(
       children: [
-        BlocBuilder<DashBoardBloc, DashboardState>(
+        BlocBuilder<DashBoardBloc, DashBoardState>(
           builder: (context, state) {
             return state.when(
                 initial: () => Container(),
@@ -42,7 +42,12 @@ class LoadingCustomWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Positioned(
-        top: 50, left: 170, child: CircularProgressIndicator());
+    return Container(
+      padding: const EdgeInsets.only(bottom: 65),
+      height: 200,
+      child: const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../../../core/provicional_borrar_al_empezar_bakend/temporalModels/utilities.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/util.dart';
+import '../blocs/dashboard/dashboard_bloc.dart';
 import '../widgets/widgets.dart';
 
 class PopularSection extends StatelessWidget {
@@ -11,8 +11,6 @@ class PopularSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    UtilitiesList utilitiesList = UtilitiesList();
-
     return Column(
       children: [
         Padding(
@@ -30,9 +28,20 @@ class PopularSection extends StatelessWidget {
             ),
           ),
         ),
-        PopularLocationCarouselWidget(
-            heroTag: 'home_flash_sales',
-            utilitiesList: utilitiesList.popularList),
+        BlocBuilder<DashBoardBloc, DashBoardState>(
+          builder: (context, state) {
+            return state.when(
+                failure: (message) => Container(),
+                initial: () => Container(),
+                loading: () => const SizedBox(
+                      height: 230,
+                      child: Center(child: CircularProgressIndicator()),
+                    ),
+                success: (dashBoardData) => PopularLocationCarouselWidget(
+                    heroTag: 'home_flash_sales',
+                    recentBusinesses: dashBoardData.recent));
+          },
+        ),
       ],
     );
   }

@@ -221,12 +221,12 @@ mixin _$DashboardState {
 /// @nodoc
 abstract class $DashboardStateCopyWith<$Res> {
   factory $DashboardStateCopyWith(
-          DashboardState value, $Res Function(DashboardState) then) =
-      _$DashboardStateCopyWithImpl<$Res, DashboardState>;
+          DashBoardState value, $Res Function(DashBoardState) then) =
+      _$DashboardStateCopyWithImpl<$Res, DashBoardState>;
 }
 
 /// @nodoc
-class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
+class _$DashboardStateCopyWithImpl<$Res, $Val extends DashBoardState>
     implements $DashboardStateCopyWith<$Res> {
   _$DashboardStateCopyWithImpl(this._value, this._then);
 
@@ -346,7 +346,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements DashboardState {
+abstract class _Initial implements DashBoardState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -460,7 +460,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements DashboardState {
+abstract class _Loading implements DashBoardState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -611,7 +611,7 @@ class _$SuccessImpl implements _Success {
   }
 }
 
-abstract class _Success implements DashboardState {
+abstract class _Success implements DashBoardState {
   const factory _Success({required final DashBoard dashBoardData}) =
       _$SuccessImpl;
 
@@ -757,7 +757,7 @@ class _$FailureImpl implements _Failure {
   }
 }
 
-abstract class _Failure implements DashboardState {
+abstract class _Failure implements DashBoardState {
   const factory _Failure({required final String message}) = _$FailureImpl;
 
   String get message;

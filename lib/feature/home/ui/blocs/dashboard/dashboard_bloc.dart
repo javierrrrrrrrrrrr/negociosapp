@@ -8,26 +8,26 @@ part 'dashboard_event.dart';
 part 'dashboard_state.dart';
 part 'dashboard_bloc.freezed.dart';
 
-class DashBoardBloc extends Bloc<DashboardEvent, DashboardState> {
+class DashBoardBloc extends Bloc<DashboardEvent, DashBoardState> {
   final GetHomeDataUseCase userCase;
 
-  DashBoardBloc(this.userCase) : super(const DashboardState.initial()) {
+  DashBoardBloc(this.userCase) : super(const DashBoardState.initial()) {
     on<DashboardEvent>(eventHandler);
     statredEvent();
   }
 
   FutureOr<void> eventHandler(DashboardEvent event, Emitter emit) async {
     await event.when(started: () async {
-      emit(const DashboardState.loading());
+      emit(const DashBoardState.loading());
 
       final result = await userCase(params: NoParams());
 
       result.fold(
         (failure) => emit(
-          DashboardState.failure(message: failure.message),
+          DashBoardState.failure(message: failure.message),
         ),
         (dashBoardData) =>
-            emit(DashboardState.success(dashBoardData: dashBoardData)),
+            emit(DashBoardState.success(dashBoardData: dashBoardData)),
       );
     });
   }

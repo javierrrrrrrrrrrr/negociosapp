@@ -1,7 +1,7 @@
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:negociosapp/core/provicional_borrar_al_empezar_bakend/temporalModels/utilities.dart';
 import 'package:negociosapp/core/utils/route_argument.dart';
-
+import 'package:negociosapp/feature/home/domain/entities/business.dart';
 import '../../../../core/utils/util.dart';
 import '../../../layout/ui/widgets/widgets.dart';
 import '../widgets/reviews_list_widget.dart';
@@ -12,12 +12,12 @@ class DetailsPage extends StatefulWidget {
   static const String name = 'details_page';
 
   RouteArgument routeArgument;
-  Utilitie? _utilitie;
+  Business? _business;
   String? _heroTag;
 
   DetailsPage({super.key, required this.routeArgument}) {
-    _utilitie = routeArgument.argumentsList[0] as Utilitie;
     _heroTag = routeArgument.argumentsList[1] as String;
+    _business = routeArgument.argumentsList[0] as Business;
   }
 
   @override
@@ -96,7 +96,7 @@ class _DetailsPageState extends State<DetailsPage>
           flexibleSpace: FlexibleSpaceBar(
             collapseMode: CollapseMode.parallax,
             background: Hero(
-              tag: widget._heroTag! + widget.routeArgument.id,
+              tag: widget._heroTag! + widget.routeArgument.id.toString(),
               child: Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
@@ -104,12 +104,9 @@ class _DetailsPageState extends State<DetailsPage>
                     padding:
                         const EdgeInsets.symmetric(horizontal: 5, vertical: 20),
                     width: double.infinity,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
+                    child: FastCachedImage(
                         fit: BoxFit.cover,
-                        image: AssetImage(widget._utilitie!.image),
-                      ),
-                    ),
+                        url: widget._business!.imagen!.medium.url),
                   ),
                   Container(
                     width: double.infinity,
@@ -182,7 +179,7 @@ class _DetailsPageState extends State<DetailsPage>
               offstage: 0 != _tabIndex,
               child: Column(
                 children: <Widget>[
-                  UtilitieHomeTabWidget(utilitie: widget._utilitie!),
+                  UtilitieHomeTabWidget(business: widget._business!),
                 ],
               ),
             ),
