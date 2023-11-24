@@ -11,7 +11,7 @@ class BusinessModel with _$BusinessModel {
     String? description,
     required String createdAt,
     required bool isDeleted,
-    ImageModel? imagen,
+    ListImageModel? image,
     String? category,
     required bool isPromoted,
     required int ownerId,
@@ -22,14 +22,25 @@ class BusinessModel with _$BusinessModel {
 }
 
 @freezed
+class ListImageModel with _$ListImageModel {
+  const factory ListImageModel({
+    required ImageModel image,
+    required ImageModel thumb,
+    required ImageModel medium,
+  }) = _ListImageModel;
+
+  factory ListImageModel.fromJson(Map<String, dynamic> json) =>
+      _$ListImageModelFromJson(json);
+}
+
+@freezed
 class ImageModel with _$ImageModel {
   const factory ImageModel({
     required String filename,
     required String name,
     required String mime,
-    required String extensionn,
     required String url,
-    required int size,
+    required int? size,
   }) = _ImageModel;
 
   factory ImageModel.fromJson(Map<String, dynamic> json) =>

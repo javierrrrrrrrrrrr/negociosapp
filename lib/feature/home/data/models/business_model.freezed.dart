@@ -25,7 +25,7 @@ mixin _$BusinessModel {
   String? get description => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
   bool get isDeleted => throw _privateConstructorUsedError;
-  ImageModel? get imagen => throw _privateConstructorUsedError;
+  ListImageModel? get image => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   bool get isPromoted => throw _privateConstructorUsedError;
   int get ownerId => throw _privateConstructorUsedError;
@@ -48,12 +48,12 @@ abstract class $BusinessModelCopyWith<$Res> {
       String? description,
       String createdAt,
       bool isDeleted,
-      ImageModel? imagen,
+      ListImageModel? image,
       String? category,
       bool isPromoted,
       int ownerId});
 
-  $ImageModelCopyWith<$Res>? get imagen;
+  $ListImageModelCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -74,7 +74,7 @@ class _$BusinessModelCopyWithImpl<$Res, $Val extends BusinessModel>
     Object? description = freezed,
     Object? createdAt = null,
     Object? isDeleted = null,
-    Object? imagen = freezed,
+    Object? image = freezed,
     Object? category = freezed,
     Object? isPromoted = null,
     Object? ownerId = null,
@@ -100,10 +100,10 @@ class _$BusinessModelCopyWithImpl<$Res, $Val extends BusinessModel>
           ? _value.isDeleted
           : isDeleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      imagen: freezed == imagen
-          ? _value.imagen
-          : imagen // ignore: cast_nullable_to_non_nullable
-              as ImageModel?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as ListImageModel?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -121,13 +121,13 @@ class _$BusinessModelCopyWithImpl<$Res, $Val extends BusinessModel>
 
   @override
   @pragma('vm:prefer-inline')
-  $ImageModelCopyWith<$Res>? get imagen {
-    if (_value.imagen == null) {
+  $ListImageModelCopyWith<$Res>? get image {
+    if (_value.image == null) {
       return null;
     }
 
-    return $ImageModelCopyWith<$Res>(_value.imagen!, (value) {
-      return _then(_value.copyWith(imagen: value) as $Val);
+    return $ListImageModelCopyWith<$Res>(_value.image!, (value) {
+      return _then(_value.copyWith(image: value) as $Val);
     });
   }
 }
@@ -146,13 +146,13 @@ abstract class _$$BusinessModelImplCopyWith<$Res>
       String? description,
       String createdAt,
       bool isDeleted,
-      ImageModel? imagen,
+      ListImageModel? image,
       String? category,
       bool isPromoted,
       int ownerId});
 
   @override
-  $ImageModelCopyWith<$Res>? get imagen;
+  $ListImageModelCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -171,7 +171,7 @@ class __$$BusinessModelImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? createdAt = null,
     Object? isDeleted = null,
-    Object? imagen = freezed,
+    Object? image = freezed,
     Object? category = freezed,
     Object? isPromoted = null,
     Object? ownerId = null,
@@ -197,10 +197,10 @@ class __$$BusinessModelImplCopyWithImpl<$Res>
           ? _value.isDeleted
           : isDeleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      imagen: freezed == imagen
-          ? _value.imagen
-          : imagen // ignore: cast_nullable_to_non_nullable
-              as ImageModel?,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as ListImageModel?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -226,7 +226,7 @@ class _$BusinessModelImpl implements _BusinessModel {
       this.description,
       required this.createdAt,
       required this.isDeleted,
-      this.imagen,
+      this.image,
       this.category,
       required this.isPromoted,
       required this.ownerId});
@@ -245,7 +245,7 @@ class _$BusinessModelImpl implements _BusinessModel {
   @override
   final bool isDeleted;
   @override
-  final ImageModel? imagen;
+  final ListImageModel? image;
   @override
   final String? category;
   @override
@@ -255,7 +255,7 @@ class _$BusinessModelImpl implements _BusinessModel {
 
   @override
   String toString() {
-    return 'BusinessModel(id: $id, name: $name, description: $description, createdAt: $createdAt, isDeleted: $isDeleted, imagen: $imagen, category: $category, isPromoted: $isPromoted, ownerId: $ownerId)';
+    return 'BusinessModel(id: $id, name: $name, description: $description, createdAt: $createdAt, isDeleted: $isDeleted, image: $image, category: $category, isPromoted: $isPromoted, ownerId: $ownerId)';
   }
 
   @override
@@ -271,7 +271,7 @@ class _$BusinessModelImpl implements _BusinessModel {
                 other.createdAt == createdAt) &&
             (identical(other.isDeleted, isDeleted) ||
                 other.isDeleted == isDeleted) &&
-            (identical(other.imagen, imagen) || other.imagen == imagen) &&
+            (identical(other.image, image) || other.image == image) &&
             (identical(other.category, category) ||
                 other.category == category) &&
             (identical(other.isPromoted, isPromoted) ||
@@ -282,7 +282,7 @@ class _$BusinessModelImpl implements _BusinessModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, description, createdAt,
-      isDeleted, imagen, category, isPromoted, ownerId);
+      isDeleted, image, category, isPromoted, ownerId);
 
   @JsonKey(ignore: true)
   @override
@@ -305,7 +305,7 @@ abstract class _BusinessModel implements BusinessModel {
       final String? description,
       required final String createdAt,
       required final bool isDeleted,
-      final ImageModel? imagen,
+      final ListImageModel? image,
       final String? category,
       required final bool isPromoted,
       required final int ownerId}) = _$BusinessModelImpl;
@@ -324,7 +324,7 @@ abstract class _BusinessModel implements BusinessModel {
   @override
   bool get isDeleted;
   @override
-  ImageModel? get imagen;
+  ListImageModel? get image;
   @override
   String? get category;
   @override
@@ -337,6 +337,214 @@ abstract class _BusinessModel implements BusinessModel {
       throw _privateConstructorUsedError;
 }
 
+ListImageModel _$ListImageModelFromJson(Map<String, dynamic> json) {
+  return _ListImageModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ListImageModel {
+  ImageModel get image => throw _privateConstructorUsedError;
+  ImageModel get thumb => throw _privateConstructorUsedError;
+  ImageModel get medium => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ListImageModelCopyWith<ListImageModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ListImageModelCopyWith<$Res> {
+  factory $ListImageModelCopyWith(
+          ListImageModel value, $Res Function(ListImageModel) then) =
+      _$ListImageModelCopyWithImpl<$Res, ListImageModel>;
+  @useResult
+  $Res call({ImageModel image, ImageModel thumb, ImageModel medium});
+
+  $ImageModelCopyWith<$Res> get image;
+  $ImageModelCopyWith<$Res> get thumb;
+  $ImageModelCopyWith<$Res> get medium;
+}
+
+/// @nodoc
+class _$ListImageModelCopyWithImpl<$Res, $Val extends ListImageModel>
+    implements $ListImageModelCopyWith<$Res> {
+  _$ListImageModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? image = null,
+    Object? thumb = null,
+    Object? medium = null,
+  }) {
+    return _then(_value.copyWith(
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as ImageModel,
+      thumb: null == thumb
+          ? _value.thumb
+          : thumb // ignore: cast_nullable_to_non_nullable
+              as ImageModel,
+      medium: null == medium
+          ? _value.medium
+          : medium // ignore: cast_nullable_to_non_nullable
+              as ImageModel,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageModelCopyWith<$Res> get image {
+    return $ImageModelCopyWith<$Res>(_value.image, (value) {
+      return _then(_value.copyWith(image: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageModelCopyWith<$Res> get thumb {
+    return $ImageModelCopyWith<$Res>(_value.thumb, (value) {
+      return _then(_value.copyWith(thumb: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageModelCopyWith<$Res> get medium {
+    return $ImageModelCopyWith<$Res>(_value.medium, (value) {
+      return _then(_value.copyWith(medium: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$ListImageModelImplCopyWith<$Res>
+    implements $ListImageModelCopyWith<$Res> {
+  factory _$$ListImageModelImplCopyWith(_$ListImageModelImpl value,
+          $Res Function(_$ListImageModelImpl) then) =
+      __$$ListImageModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ImageModel image, ImageModel thumb, ImageModel medium});
+
+  @override
+  $ImageModelCopyWith<$Res> get image;
+  @override
+  $ImageModelCopyWith<$Res> get thumb;
+  @override
+  $ImageModelCopyWith<$Res> get medium;
+}
+
+/// @nodoc
+class __$$ListImageModelImplCopyWithImpl<$Res>
+    extends _$ListImageModelCopyWithImpl<$Res, _$ListImageModelImpl>
+    implements _$$ListImageModelImplCopyWith<$Res> {
+  __$$ListImageModelImplCopyWithImpl(
+      _$ListImageModelImpl _value, $Res Function(_$ListImageModelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? image = null,
+    Object? thumb = null,
+    Object? medium = null,
+  }) {
+    return _then(_$ListImageModelImpl(
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as ImageModel,
+      thumb: null == thumb
+          ? _value.thumb
+          : thumb // ignore: cast_nullable_to_non_nullable
+              as ImageModel,
+      medium: null == medium
+          ? _value.medium
+          : medium // ignore: cast_nullable_to_non_nullable
+              as ImageModel,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ListImageModelImpl implements _ListImageModel {
+  const _$ListImageModelImpl(
+      {required this.image, required this.thumb, required this.medium});
+
+  factory _$ListImageModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ListImageModelImplFromJson(json);
+
+  @override
+  final ImageModel image;
+  @override
+  final ImageModel thumb;
+  @override
+  final ImageModel medium;
+
+  @override
+  String toString() {
+    return 'ListImageModel(image: $image, thumb: $thumb, medium: $medium)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ListImageModelImpl &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.thumb, thumb) || other.thumb == thumb) &&
+            (identical(other.medium, medium) || other.medium == medium));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, image, thumb, medium);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ListImageModelImplCopyWith<_$ListImageModelImpl> get copyWith =>
+      __$$ListImageModelImplCopyWithImpl<_$ListImageModelImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ListImageModelImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ListImageModel implements ListImageModel {
+  const factory _ListImageModel(
+      {required final ImageModel image,
+      required final ImageModel thumb,
+      required final ImageModel medium}) = _$ListImageModelImpl;
+
+  factory _ListImageModel.fromJson(Map<String, dynamic> json) =
+      _$ListImageModelImpl.fromJson;
+
+  @override
+  ImageModel get image;
+  @override
+  ImageModel get thumb;
+  @override
+  ImageModel get medium;
+  @override
+  @JsonKey(ignore: true)
+  _$$ListImageModelImplCopyWith<_$ListImageModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 ImageModel _$ImageModelFromJson(Map<String, dynamic> json) {
   return _ImageModel.fromJson(json);
 }
@@ -346,9 +554,8 @@ mixin _$ImageModel {
   String get filename => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get mime => throw _privateConstructorUsedError;
-  String get extensionn => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
-  int get size => throw _privateConstructorUsedError;
+  int? get size => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -362,13 +569,7 @@ abstract class $ImageModelCopyWith<$Res> {
           ImageModel value, $Res Function(ImageModel) then) =
       _$ImageModelCopyWithImpl<$Res, ImageModel>;
   @useResult
-  $Res call(
-      {String filename,
-      String name,
-      String mime,
-      String extensionn,
-      String url,
-      int size});
+  $Res call({String filename, String name, String mime, String url, int? size});
 }
 
 /// @nodoc
@@ -387,9 +588,8 @@ class _$ImageModelCopyWithImpl<$Res, $Val extends ImageModel>
     Object? filename = null,
     Object? name = null,
     Object? mime = null,
-    Object? extensionn = null,
     Object? url = null,
-    Object? size = null,
+    Object? size = freezed,
   }) {
     return _then(_value.copyWith(
       filename: null == filename
@@ -404,18 +604,14 @@ class _$ImageModelCopyWithImpl<$Res, $Val extends ImageModel>
           ? _value.mime
           : mime // ignore: cast_nullable_to_non_nullable
               as String,
-      extensionn: null == extensionn
-          ? _value.extensionn
-          : extensionn // ignore: cast_nullable_to_non_nullable
-              as String,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      size: null == size
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -428,13 +624,7 @@ abstract class _$$ImageModelImplCopyWith<$Res>
       __$$ImageModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String filename,
-      String name,
-      String mime,
-      String extensionn,
-      String url,
-      int size});
+  $Res call({String filename, String name, String mime, String url, int? size});
 }
 
 /// @nodoc
@@ -451,9 +641,8 @@ class __$$ImageModelImplCopyWithImpl<$Res>
     Object? filename = null,
     Object? name = null,
     Object? mime = null,
-    Object? extensionn = null,
     Object? url = null,
-    Object? size = null,
+    Object? size = freezed,
   }) {
     return _then(_$ImageModelImpl(
       filename: null == filename
@@ -468,18 +657,14 @@ class __$$ImageModelImplCopyWithImpl<$Res>
           ? _value.mime
           : mime // ignore: cast_nullable_to_non_nullable
               as String,
-      extensionn: null == extensionn
-          ? _value.extensionn
-          : extensionn // ignore: cast_nullable_to_non_nullable
-              as String,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      size: null == size
+      size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -491,7 +676,6 @@ class _$ImageModelImpl implements _ImageModel {
       {required this.filename,
       required this.name,
       required this.mime,
-      required this.extensionn,
       required this.url,
       required this.size});
 
@@ -505,15 +689,13 @@ class _$ImageModelImpl implements _ImageModel {
   @override
   final String mime;
   @override
-  final String extensionn;
-  @override
   final String url;
   @override
-  final int size;
+  final int? size;
 
   @override
   String toString() {
-    return 'ImageModel(filename: $filename, name: $name, mime: $mime, extensionn: $extensionn, url: $url, size: $size)';
+    return 'ImageModel(filename: $filename, name: $name, mime: $mime, url: $url, size: $size)';
   }
 
   @override
@@ -525,16 +707,13 @@ class _$ImageModelImpl implements _ImageModel {
                 other.filename == filename) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.mime, mime) || other.mime == mime) &&
-            (identical(other.extensionn, extensionn) ||
-                other.extensionn == extensionn) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.size, size) || other.size == size));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, filename, name, mime, extensionn, url, size);
+  int get hashCode => Object.hash(runtimeType, filename, name, mime, url, size);
 
   @JsonKey(ignore: true)
   @override
@@ -555,9 +734,8 @@ abstract class _ImageModel implements ImageModel {
       {required final String filename,
       required final String name,
       required final String mime,
-      required final String extensionn,
       required final String url,
-      required final int size}) = _$ImageModelImpl;
+      required final int? size}) = _$ImageModelImpl;
 
   factory _ImageModel.fromJson(Map<String, dynamic> json) =
       _$ImageModelImpl.fromJson;
@@ -569,11 +747,9 @@ abstract class _ImageModel implements ImageModel {
   @override
   String get mime;
   @override
-  String get extensionn;
-  @override
   String get url;
   @override
-  int get size;
+  int? get size;
   @override
   @JsonKey(ignore: true)
   _$$ImageModelImplCopyWith<_$ImageModelImpl> get copyWith =>

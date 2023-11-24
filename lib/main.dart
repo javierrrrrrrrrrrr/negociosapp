@@ -7,10 +7,10 @@ import 'core/service_locator/dependency_injection.dart';
 import 'core/utils/app/app.dart';
 
 void main() async {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   init();
+  await dotenv.load(fileName: '.env');
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  await dotenv.load(fileName: '.env');
   runApp(blocProviders(child: const MyApp()));
 }

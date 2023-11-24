@@ -9,11 +9,20 @@ class Business with _$Business {
     String? description,
     required String createdAt,
     required bool isDeleted,
-    Image? imagen,
+    ListImage? imagen,
     String? category,
     required bool isPromoted,
     required int ownerId,
   }) = _Business;
+}
+
+@freezed
+class ListImage with _$ListImage {
+  const factory ListImage({
+    required Image image,
+    required Image thumb,
+    required Image medium,
+  }) = _ListImage;
 }
 
 @freezed
@@ -22,8 +31,7 @@ class Image with _$Image {
     required String filename,
     required String name,
     required String mime,
-    required String extensionn,
     required String url,
-    required int size,
+    required int? size,
   }) = _Image;
 }

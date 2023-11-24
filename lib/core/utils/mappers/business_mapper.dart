@@ -15,19 +15,25 @@ class BusinessMapper {
         category: businessModel.category,
         isPromoted: businessModel.isPromoted,
         ownerId: businessModel.ownerId,
-        imagen: businessModel.imagen == null
+        imagen: businessModel.image == null
             ? null
-            : imageModelToImageEntity(imageModel: businessModel.imagen!),
+            : listImageModelToListImageEntity(listimage: businessModel.image!),
         // token: authModel.token,
         // user: UserMapper.userModelToUserEntity(userModel: authModel.user),
       );
+
+  static ListImage listImageModelToListImageEntity(
+          {required ListImageModel listimage}) =>
+      ListImage(
+          image: imageModelToImageEntity(imageModel: listimage.image),
+          medium: imageModelToImageEntity(imageModel: listimage.medium),
+          thumb: imageModelToImageEntity(imageModel: listimage.thumb));
 
   static Image imageModelToImageEntity({required ImageModel imageModel}) =>
       Image(
         filename: imageModel.filename,
         name: imageModel.name,
         mime: imageModel.mime,
-        extensionn: imageModel.extensionn,
         url: imageModel.url,
         size: imageModel.size,
       );

@@ -6,9 +6,12 @@ import '../../../../core/provicional_borrar_al_empezar_bakend/slider.dart'
 
 import 'package:flutter/material.dart';
 
-class HomeSliderWidget extends StatelessWidget {
-  const HomeSliderWidget({super.key});
+import '../../domain/entities/business.dart';
 
+class HomeSliderWidget extends StatelessWidget {
+  const HomeSliderWidget({super.key, required this.promotedBusinesses});
+
+  final List<Business> promotedBusinesses;
   @override
   Widget build(BuildContext context) {
     final SliderList sliderList = SliderList();
@@ -17,14 +20,15 @@ class HomeSliderWidget extends StatelessWidget {
       alignment: AlignmentDirectional.bottomEnd,
       children: <Widget>[
         CarouselSlider(
-          items: sliderList.list.map((prefix0.Slider slide) {
+          items: promotedBusinesses.map((Business dataList) {
             return Builder(
               builder: (BuildContext context) {
                 return Container(
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(slide.image), fit: BoxFit.cover),
+                        image: NetworkImage(dataList.imagen!.medium.url),
+                        fit: BoxFit.cover),
                     boxShadow: [
                       BoxShadow(
                           color: Theme.of(context).hintColor.withOpacity(0.2),

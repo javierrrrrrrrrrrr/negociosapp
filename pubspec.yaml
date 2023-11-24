@@ -30,6 +30,7 @@ dependencies:
   freezed_annotation: ^2.4.1
   dartz: ^0.10.1
   flutter_dotenv: ^5.1.0
+  fast_cached_network_image: ^1.2.0
  
 
 dev_dependencies:
@@ -49,11 +50,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - .env 
     - assets/linkedin.png
     - assets/marker.png
     - assets/logosplash.png
     - assets/img/
-    - .env 
  
 
   fonts:

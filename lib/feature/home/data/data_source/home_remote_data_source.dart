@@ -26,6 +26,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
         throw ServerException();
       }
     } catch (e) {
+      print(e);
       throw ServerException();
     }
   }
