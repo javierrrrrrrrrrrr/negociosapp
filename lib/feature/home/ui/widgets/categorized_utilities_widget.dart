@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 class CategorizedUtilitiesWidget extends StatelessWidget {
   const CategorizedUtilitiesWidget({
     super.key,
-    required this.data,
+    required this.businessList,
   });
 
-  final List<Business> data;
+  final List<Business> businessList;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,10 @@ class CategorizedUtilitiesWidget extends StatelessWidget {
               separatorBuilder: (context, index) => const SizedBox(
                     height: 20,
                   ),
-              itemCount: data.length,
+              itemCount: businessList.length,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               itemBuilder: (BuildContext context, int index) {
-                final utility = data[index];
+                final utility = businessList[index];
                 return UtilitieRelateItemWidget(
                   data: utility,
                   heroTag: 'categorized_utilities_grid',

@@ -18,11 +18,11 @@ class HeaderSection extends StatelessWidget {
         BlocBuilder<DashBoardBloc, DashBoardState>(
           builder: (context, state) {
             return state.when(
-                initial: () => Container(),
+                initial: () => const SizedBox.shrink(),
                 loading: () => const LoadingCustomWidget(),
                 success: (DashBoard data) => HomeSliderWidget(
                     promotedBusinesses: data.promotedBusinesses),
-                failure: (_) => Container());
+                failure: (_) => const SizedBox.shrink());
           },
         ),
         Container(

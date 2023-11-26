@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import '../../domain/entities/business.dart';
 
 class HomeSliderWidget extends StatelessWidget {
-  const HomeSliderWidget({super.key, required this.promotedBusinesses});
+  const HomeSliderWidget({
+    super.key,
+    required this.promotedBusinesses,
+  });
 
   final List<Business> promotedBusinesses;
   @override
@@ -13,32 +16,36 @@ class HomeSliderWidget extends StatelessWidget {
       alignment: AlignmentDirectional.bottomEnd,
       children: <Widget>[
         CarouselSlider(
-          items: promotedBusinesses.map((Business dataList) {
-            return Builder(
-              builder: (BuildContext context) {
-                return Container(
-                  height: 200,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
+          items: promotedBusinesses.map(
+            (Business business) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return Container(
+                    height: 200,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
                         image: FastCachedImageProvider(
-                            dataList.imagen!.medium.url),
-                        fit: BoxFit.cover),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Theme.of(context).hintColor.withOpacity(0.2),
-                          offset: const Offset(0, 4),
-                          blurRadius: 9)
-                    ],
-                  ),
-                  child: Container(
-                    alignment: AlignmentDirectional.bottomEnd,
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                  ),
-                );
-              },
-            );
-          }).toList(),
+                          business.imagen!.medium.url,
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Theme.of(context).hintColor.withOpacity(0.2),
+                            offset: const Offset(0, 4),
+                            blurRadius: 9)
+                      ],
+                    ),
+                    child: Container(
+                      alignment: AlignmentDirectional.bottomEnd,
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                    ),
+                  );
+                },
+              );
+            },
+          ).toList(),
           options: CarouselOptions(
             autoPlay: true,
             autoPlayInterval: const Duration(seconds: 5),
@@ -46,27 +53,28 @@ class HomeSliderWidget extends StatelessWidget {
             viewportFraction: 1.0,
           ),
         ),
-        Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: promotedBusinesses.map((Business dataList) {
-              return Container(
-                  width: 20.0,
-                  height: 3.0,
-                  margin: const EdgeInsets.symmetric(
-                      vertical: 70.0, horizontal: 2.0),
-                  decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(8),
-                      ),
-                      color: Theme.of(context).hintColor)
-                  // color: current == sliderList.list.indexOf(slide)
-                  //     ? Theme.of(context).hintColor
-                  //     : Theme.of(context).hintColor.withOpacity(0.3)),
-                  );
-            }).toList(),
-          ),
-        ),
+        // Center(
+        //   child: Row(
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: promotedBusinesses.map((Business business) {
+        //       int current = promotedBusinesses.indexOf(business);
+        //       return Container(
+        //         width: 20.0,
+        //         height: 3.0,
+        //         margin:
+        //             const EdgeInsets.symmetric(vertical: 70.0, horizontal: 2.0),
+        //         decoration: BoxDecoration(
+        //           borderRadius: const BorderRadius.all(
+        //             Radius.circular(8),
+        //           ),
+        //           color: current == promotedBusinesses.indexOf(business)
+        //               ? Colors.red
+        //               : Colors.blue,
+        //         ),
+        //       );
+        //     }).toList(),
+        //   ),
+        // ),
       ],
     );
   }

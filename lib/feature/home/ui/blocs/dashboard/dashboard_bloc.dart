@@ -32,6 +32,9 @@ class DashBoardBloc extends Bloc<DashboardEvent, DashBoardState> {
     });
   }
 
+  
+  
+
   void statredEvent() {
     add(const DashboardEvent.started());
   }

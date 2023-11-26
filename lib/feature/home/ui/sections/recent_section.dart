@@ -30,15 +30,15 @@ class RecentSection extends StatelessWidget {
         ),
         BlocBuilder<DashBoardBloc, DashBoardState>(
           builder: (context, state) {
-            return state.when(
-                failure: (message) => Container(),
-                initial: () => Container(),
-                loading: () => Container(),
-                success: (dashBoardData) => SizedBox(
-                    height: 450,
-                    child: CategorizedUtilitiesWidget(
-                      data: dashBoardData.recent,
-                    )));
+            return state.maybeWhen(
+              orElse: () => const SizedBox.shrink(),
+              success: (dashBoardData) => SizedBox(
+                height: 450,
+                child: CategorizedUtilitiesWidget(
+                  businessList: dashBoardData.recent,
+                ),
+              ),
+            );
           },
         ),
       ],

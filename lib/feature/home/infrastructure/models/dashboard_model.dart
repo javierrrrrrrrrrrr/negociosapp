@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:negociosapp/feature/home/data/models/business_model.dart';
+
+import 'business_model.dart';
+
 
 part 'dashboard_model.freezed.dart';
 part 'dashboard_model.g.dart';

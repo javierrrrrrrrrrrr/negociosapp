@@ -1,22 +1,22 @@
-import 'package:negociosapp/core/utils/mappers/business_mapper.dart';
 
-import '../../../feature/home/data/models/dashboard_model.dart';
-import '../../../feature/home/domain/entities/dashboard.dart';
+import '../models/dashboard_model.dart';
+import '../../domain/entities/dashboard.dart';
+import 'business_mapper.dart';
 
 class DashBoardMapper {
   DashBoardMapper._();
 
-  static DashBoard userModelToUserEntity({required DashBoardModel userModel}) =>
+  static DashBoard dashBoardModelToDashBoardEntity({required DashBoardModel dashBoardModel}) =>
       DashBoard(
-        popular: userModel.popular
+        popular: dashBoardModel.popular
             .map((item) => BusinessMapper.businessModelToBusinessEntity(
                 businessModel: item))
             .toList(),
-        promotedBusinesses: userModel.promotedBusinesses
+        promotedBusinesses: dashBoardModel.promotedBusinesses
             .map((item) => BusinessMapper.businessModelToBusinessEntity(
                 businessModel: item))
             .toList(),
-        recent: userModel.recent
+        recent: dashBoardModel.recent
             .map((item) => BusinessMapper.businessModelToBusinessEntity(
                 businessModel: item))
             .toList(),
