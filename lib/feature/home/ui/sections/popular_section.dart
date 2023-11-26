@@ -11,35 +11,37 @@ class PopularSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dashBoardBlocState = context.watch<DashBoardBloc>().state;
+
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-          child: ListTile(
-            dense: true,
-            contentPadding: const EdgeInsets.symmetric(vertical: 0),
-            leading: Icon(
-              UiIcons.favorites,
-              color: Theme.of(context).hintColor,
-            ),
-            title: Text(
-              'Popular',
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
+        ListTile(
+          dense: true,
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+          leading: Icon(
+            UiIcons.favorites,
+            color: Theme.of(context).hintColor,
+          ),
+          title: Text(
+            'Popular',
+            style: Theme.of(context).textTheme.bodySmall,
           ),
         ),
-        BlocBuilder<DashBoardBloc, DashBoardState>(
-          builder: (context, state) {
-            return state.when(
-                failure: (message) => Container(),
-                initial: () => Container(),
-                loading: () => const SizedBox(
-                      height: 230,
-                      child: Center(child: CircularProgressIndicator()),
-                    ),
-                success: (dashBoardData) => PopularLocationCarouselWidget(
-                    heroTag: 'home_flash_sales',
-                    recentBusinesses: dashBoardData.recent));
+        Builder(
+          builder: (_) {
+            return dashBoardBlocState.when(
+              failure: (message) => const SizedBox.shrink(),
+              initial: () => const SizedBox.shrink(),
+              loading: () => const SizedBox(
+                height: 230,
+                child: Center(child: CircularProgressIndicator()),
+              ),
+              success: (dashBoardData) => PopularLocationCarouselWidget(
+                heroTag: 'home_flash_sales',
+                recentBusinesses: dashBoardData.recent,
+              ),
+            );
           },
         ),
       ],

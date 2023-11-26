@@ -1,5 +1,7 @@
 import 'package:negociosapp/feature/home/domain/entities/business.dart';
-import '../../../feature/home/data/models/business_model.dart';
+
+import '../models/business_model.dart';
+
 
 class BusinessMapper {
   BusinessMapper._();

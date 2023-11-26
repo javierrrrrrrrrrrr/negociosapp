@@ -35,7 +35,6 @@ class UtilitieHomeTabWidgetState extends State<UtilitieHomeTabWidget> {
                 ),
               ),
               Chip(
-                padding: const EdgeInsets.all(0),
                 label: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
@@ -63,10 +62,12 @@ class UtilitieHomeTabWidgetState extends State<UtilitieHomeTabWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Expanded(
-                child: Text(widget.business.category.toString(),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                    style: Theme.of(context).textTheme.bodyLarge),
+                child: Text(
+                  widget.business.category ?? 'No category',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
               ),
             ],
           ),
@@ -74,25 +75,24 @@ class UtilitieHomeTabWidgetState extends State<UtilitieHomeTabWidget> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: ListTile(
-                dense: true,
-                contentPadding: const EdgeInsets.symmetric(vertical: 0),
-                leading: Icon(
-                  UiIcons.file_2,
-                  color: Theme.of(context).hintColor,
-                ),
-                title: Text(
-                  'Description',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
+            ListTile(
+              dense: true,
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              leading: Icon(
+                UiIcons.file_2,
+                color: Theme.of(context).hintColor,
+              ),
+              title: Text(
+                'Description',
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               child: Text(
-                  'We’re all going somewhere. And whether it’s the podcast blaring from your headphones as you walk down the street or the essay that encourages you to take on that big project, there’s a real joy in getting lost in the kind of story that feels like a destination unto itself.'),
+                widget.business.description ?? 'NO DESCRIPTION',
+              ),
             ),
           ],
         ),

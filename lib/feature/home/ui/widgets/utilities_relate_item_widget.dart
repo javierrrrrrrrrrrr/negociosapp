@@ -69,6 +69,8 @@ class UtilitieRelateItemWidget extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(6),
                   child: FastCachedImage(
+                    loadingBuilder: (p0, p1) =>
+                        const CircularProgressIndicator(),
                     url: data.imagen!.medium.url,
                     fit: BoxFit.cover,
                   ),

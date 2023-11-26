@@ -3,10 +3,11 @@ import 'category_icon_widget.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesIconsContainerWidget extends StatelessWidget {
-  const CategoriesIconsContainerWidget(
-      {super.key,
-      required CategoriesList categoriesList,
-      required this.onPressed});
+  const CategoriesIconsContainerWidget({
+    super.key,
+    required CategoriesList categoriesList,
+    required this.onPressed,
+  });
 
   final ValueChanged<String> onPressed;
 
@@ -14,8 +15,10 @@ class CategoriesIconsContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final CategoriesList categoriesList = CategoriesList();
     return Wrap(
-        alignment: WrapAlignment.spaceBetween,
-        children: List<Widget>.generate(categoriesList.list.length, (index) {
+      alignment: WrapAlignment.spaceBetween,
+      children: List<Widget>.generate(
+        categoriesList.list.length,
+        (index) {
           return Container(
             padding: const EdgeInsets.only(bottom: 20),
             child: CategoryIconWidget(
@@ -23,6 +26,8 @@ class CategoriesIconsContainerWidget extends StatelessWidget {
               onPressed: (id) {},
             ),
           );
-        }));
+        },
+      ),
+    );
   }
 }
